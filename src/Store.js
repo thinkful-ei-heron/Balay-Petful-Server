@@ -97,18 +97,12 @@ let STORE = {
     'Balay Aydemir',
     'Ismail Aydemir',
     'Ayse Batu',
-    'Kayhan Batu',
-    'Sebiye Aydemir',
-    'Gulsen Ozkan',
-    'Serhat Ozkan'
+    'Kayhan Batu'
   ],
   catUsers: [
     'Alex Youngman',
     'Rachel Cody',
-    'Mandi Groomes',
-    'Megan Wong',
-    'Lauren Smoley',
-    'Alexa Marino'
+    'Mandi Groomes'
   ],
   success: [
     {
