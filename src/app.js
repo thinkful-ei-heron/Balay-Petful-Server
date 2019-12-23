@@ -28,7 +28,7 @@ app.use(cors({
 
 app.get('/', function (req, res) {
   res.send(JSON.stringify({ Hello: 'World'}));
- });
+});
 
 app.use('/api/dog_users', DogUsersRouter);
 app.use('/api/cat_users', CatUsersRouter);
