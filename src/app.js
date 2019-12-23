@@ -14,6 +14,8 @@ const { onLoadQueue } = require('./Queue/QueueFuncs');
 
 const app = express();
 
+
+
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
@@ -23,6 +25,10 @@ app.use(helmet());
 app.use(cors({
   origin: CLIENT_ORIGIN
 }));
+
+app.get('/', function (req, res) {
+  res.send(JSON.stringify({ Hello: 'World'}));
+ });
 
 app.use('/api/dog_users', DogUsersRouter);
 app.use('/api/cat_users', CatUsersRouter);
