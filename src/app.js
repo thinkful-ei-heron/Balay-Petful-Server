@@ -4,10 +4,12 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const UsersRouter = require('./Users/UsersRouter');
+const DogUsersRouter = require('./Users/DogUsersRouter');
 const DogsRouter = require('./Dogs/DogsRouter');
 const CatsRouter = require('./Cats/CatsRouter');
 const AdoptRouter = require('./Adopt/AdoptRouter');
+const SuccessRouter = require('./Success/SuccessRouter');
+const CatUsersRouter = require('./Users/CatUsersRouter');
 const { onLoadQueue } = require('./Queue/QueueFuncs');
 
 const app = express();
@@ -20,10 +22,12 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-app.use('/api/users', UsersRouter);
+app.use('/api/dog_users', DogUsersRouter);
+app.use('/api/cat_users', CatUsersRouter);
 app.use('/api/dogs', DogsRouter);
 app.use('/api/cats', CatsRouter);
 app.use('/api/adopt', AdoptRouter);
+app.use('/api/success', SuccessRouter);
 onLoadQueue();
 
 

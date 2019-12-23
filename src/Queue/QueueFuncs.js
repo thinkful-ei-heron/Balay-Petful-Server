@@ -3,19 +3,21 @@ const STORE = require('../Store');
 
 let dogQueue = new Queue();
 let catQueue = new Queue();
-let userQueue = new Queue();
+let dogUserQueue = new Queue();
+let catUserQueue = new Queue();
 
 function onLoadQueue() {
   STORE.dogs.forEach(dog => dogQueue.enqueue(dog));
   STORE.cats.forEach(cat => catQueue.enqueue(cat));
-  STORE.users.forEach(user => userQueue.enqueue(user));
+  STORE.dogUsers.forEach(user => dogUserQueue.enqueue(user));
+  STORE.catUsers.forEach(user => catUserQueue.enqueue(user));
 }
 
 function adoptCat() {
-  let user = userQueue.dequeue();
+  let user = catUserQueue.dequeue();
   let cat = catQueue.dequeue();
-  let petName = cat.petName;
-  let image = cat.image;
+  let petName = cat.name;
+  let image = cat.imageURL;
   let imageDescription = cat.imageDescription;
 
   STORE.success.push({
@@ -27,10 +29,10 @@ function adoptCat() {
 }
 
 function adoptDog() {
-  let user = userQueue.dequeue();
+  let user = dogUserQueue.dequeue();
   let dog = dogQueue.dequeue();
-  let petName = dog.petName;
-  let image = dog.image;
+  let petName = dog.name;
+  let image = dog.imageURL;
   let imageDescription = dog.imageDescription;
 
   STORE.success.push({
@@ -40,13 +42,14 @@ function adoptDog() {
     imageDescription
   });
 
-  return dogQueue;
+
 }
 
 let Queues = {
   dogQueue, 
   catQueue, 
-  userQueue
+  catUserQueue,
+  dogUserQueue
 };
 
 module.exports = {

@@ -3,20 +3,19 @@ const { Queues } = require('../Queue/QueueFuncs');
 const jsonBodyParser = express.json();
 
 
-const UsersRouter = express.Router();
+const DogUsersRouter = express.Router();
 
-UsersRouter
+DogUsersRouter
   .route('/')
   .get((req, res, next) => {
-    res.status(200).json(Queues.userQueue.first);
+    res.status(200).json(Queues.dogUserQueue.first);
   })
   .post(jsonBodyParser, (req, res, next) => {
     const { user } = req.body;
-    console.log(req.body);
-    Queues.userQueue.enqueue(user);
-    res.status(201).json(Queues.userQueue);
+    Queues.dogUserQueue.enqueue(user);
+    res.status(201).json(Queues.dogUserQueue);
   });
 
 
 
-module.exports = UsersRouter;
+module.exports = DogUsersRouter;

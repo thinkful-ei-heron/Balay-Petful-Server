@@ -93,7 +93,7 @@ let STORE = {
       story: 'Owner surrender'
     }
   ],
-  users: [
+  dogUsers: [
     'Balay Aydemir',
     'Ismail Aydemir',
     'Ayse Batu',
@@ -101,6 +101,14 @@ let STORE = {
     'Sebiye Aydemir',
     'Gulsen Ozkan',
     'Serhat Ozkan'
+  ],
+  catUsers: [
+    'Alex Youngman',
+    'Rachel Cody',
+    'Mandi Groomes',
+    'Megan Wong',
+    'Lauren Smoley',
+    'Alexa Marino'
   ],
   success: [
     {

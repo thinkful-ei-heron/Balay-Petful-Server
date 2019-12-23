@@ -9,11 +9,11 @@ AdoptRouter
     let animalType = req.params.animalType;
     if (animalType === 'cat') {
       adoptCat();
-      res.status(200).json(Queues.catQueue);
+      res.status(200).json({cats: Queues.catQueue.first, users: Queues.catUserQueue.first});
     }
     if (animalType === 'dog') {
       adoptDog();
-      res.status(200).json(Queues.dogQueue);
+      res.status(200).json({dogs: Queues.dogQueue.first, users: Queues.dogUserQueue.first});
     }
   });
 
